@@ -15,10 +15,14 @@
 char	*ft_copypath(char *str1, char *str2)
 {
 	char *path;
+	char *path1;
+	char *path2;
 
 	path = ft_strdup(str1);
-	path = ft_strjoin(path, "/");
-	path = ft_strjoin(path, str2);
+	path1 = ft_strjoin(path, "/");
+	path2 = ft_strjoin(path1, str2);
 
-	return (path);
+	free(path);
+	free(path1);
+	return (path2);
 }

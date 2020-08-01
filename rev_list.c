@@ -25,6 +25,9 @@ void	rev_list(char *path, int flag)
 	if (flag == 2)
 		ft_print_l_flag(list, path);
 	else
+	{
 		ft_print_ls(list);
-	ft_free_list(list);
+		ft_free_list(list);
+	}
+	closedir(dir);
 }

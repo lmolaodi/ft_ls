@@ -27,4 +27,5 @@ void	ft_ls_l(char *path, int flag)
 	ft_sort_list(list, list_compare);
 	ft_print_l_flag(list, path);
 	ft_free_list(list);
+	closedir(dir);
 }

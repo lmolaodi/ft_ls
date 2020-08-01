@@ -28,6 +28,8 @@ int		flag(char *flag)
 		return (1);
 	else if ((ft_strcmp(flag, "-al") == 0) || (ft_strcmp(flag, "-la") == 0))
 		return (1);
+	else if ((ft_strcmp(flag, "-lR") == 0) || (ft_strcmp(flag, "-Rl") == 0))
+		return (1);
 	return (0);
 }
 
@@ -43,6 +45,11 @@ void	ft_get_flag(char *path, char *argv)
 		rev_list(path, 1);
 	else if ((ft_strcmp("-al", argv) == 0) || (ft_strcmp("-la", argv) == 0))
 		ft_ls_l(path, 1);
+	else if ((ft_strcmp("-lR", argv) == 0) || (ft_strcmp("-Rl", argv) == 0))
+	{
+		ft_ls_l(path, 0);
+		ft_ls_lR(path, 1);
+	}
 	else if (ft_strcmp("-R", argv) == 0)
 	{
 		ft_ls(path, 0);

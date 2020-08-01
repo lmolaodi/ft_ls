@@ -33,10 +33,11 @@ void	ft_ls_R(const char *path)
 					ft_putendl(temp);
 					ft_ls(temp, 0);
 					ft_ls_R(temp);
+					free(temp);
 				}else
 					free(temp);
 			}
 		}
 	}
-	closedir(dir);
+	closedir(dirlist);
 }

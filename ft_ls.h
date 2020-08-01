@@ -9,6 +9,8 @@
 /*   Updated: 2019/09/18 16:39:53 by lmolaodi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef FT_LS_H
+#define FT_LS_H
 
 #include <dirent.h>
 #include <string.h>
@@ -30,7 +32,15 @@ struct stat	buffer;
 struct dirent	*file;
 struct passwd	*pwd;
 struct group	*grp;
+char		*time0;
+char		*time1;
+char		*time2;
+char		*time3;
+char		*time4;
+char		*time5;
+struct dirent	**temp;
 
+void		ft_free();
 t_list		*ft_readdir(char *path, int flag);
 void		ft_insert_list(t_list **listhead, char *files);
 void		ft_ls(char *path, int flag);
@@ -50,3 +60,6 @@ int		list_compare_back(char *str1, char *str2);
 char		*ft_R_path(const char *dir,const char *str);
 void		ft_ls_R(const char *path);
 void		ft_free_list(t_list *filelist);
+void		ft_ls_lR(char *path, int flag);
+
+#endif

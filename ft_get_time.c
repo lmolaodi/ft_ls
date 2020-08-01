@@ -12,18 +12,39 @@
 
 #include "ft_ls.h"
 
+void	ft_free()
+{
+	free(time0);
+	free(time1);
+	free(time2);
+	free(time3);
+	free(time4);
+}
+
 char	*ft_get_time(char *str)
 {
 	char **strcpy;
-	char *time;
 	int i;
+	int j;
+	int len;
 
-	i = 1;
+	i = 0;
+	j = 0;
+
 	strcpy = ft_strsplit(str, ' ');
-	time = ft_strdup(strcpy[i]);
-	time = ft_strjoin(time, " ");
-	time = ft_strjoin(time, strcpy[2]);
-	time = ft_strjoin(time, " ");
-	time = ft_strjoin(time, ft_strsub(strcpy[3], 0, 5));
-	return (time);
+	time0 = ft_strdup(strcpy[1]);
+	time1 = ft_strjoin(time0, " ");
+	time2 = ft_strjoin(time1, strcpy[2]);
+	time3 = ft_strjoin(time2, " ");
+	time4 = ft_strsub(strcpy[3], 0, 5);
+	time5 = ft_strjoin(time3, time4);
+	len = ft_strlen(strcpy[j++]);
+	while (i <= len + 1)
+	{
+		free(strcpy[i]);
+		i++;
+	}
+	free(strcpy);
+	ft_free();
+	return (time5);
 }

@@ -22,10 +22,8 @@ void	ft_print_ls(t_list *list)
 		if (ft_strcmp(list->files, "") != 0)
 		{
 			ft_putstr(list->files);
-			ft_putchar('\t');
+			ft_putchar('\n');
 		}
 		list = list->next;
 	}
-	ft_free_list(list);
-	ft_putchar('\n');
 }

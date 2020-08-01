@@ -15,12 +15,15 @@
 void	ft_print_l_flag(t_list *list, char *path)
 {
 	char *strpath;
+	char *time;
+	char *permissions;
 
 	while (list != NULL)
 	{
 		strpath = ft_copypath(path, list->files);
 		lstat(strpath, &buffer);
-		ft_putstr(print_permissions());
+		permissions = print_permissions();
+		ft_putstr(permissions);
 		ft_putchar(' ');
 		ft_putnbr((int)buffer.st_nlink);
 		ft_putchar(' ');
@@ -36,10 +39,14 @@ void	ft_print_l_flag(t_list *list, char *path)
 		ft_putchar(' ');
 		ft_putnbr((int)buffer.st_size);
 		ft_putchar(' ');
-		ft_putstr(ft_get_time(ctime(&buffer.st_mtime)));
+		time = ft_get_time(ctime(&buffer.st_mtime));
+		ft_putstr(time);
 		ft_putchar(' ');
 		ft_putstr(list->files);
 		ft_putchar('\n');
 		list = list->next;
+		free(permissions);
+		free(strpath);
+		free(time);
 	}
 }
