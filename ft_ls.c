@@ -23,12 +23,16 @@ void	ft_ls(char *path, int flag)
 	lstat(path, &buffer);
 	if (!(dir = opendir(path)))
 	{
-		ft_putstr("No file or Directory:\n");
+		ft_putstr("Invalid option->: ");
+		ft_putstr(path);
+		ft_putchar('\n');
 		return ;
 	}
 	while ((file = readdir(dir)) != NULL)
+	{
 		if (file->d_name[0] != '.' || flag)
 			ft_insert_list(&list, file->d_name);
+	}
 	ft_sort_list(list, list_compare);
 	ft_print_ls(list);
 	ft_free_list(list);
