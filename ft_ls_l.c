@@ -18,9 +18,9 @@ void	ft_ls_l(char *path, int flag)
 	list = ft_readdir(path, flag);
 	if (list == NULL)
 	{
-		ft_putstr("ft_ls");
-		ft_putendl(path);
-		ft_putstr("File does nor exists:");
+		ft_putstr("\n");
+		ft_putstr("File does not exists: ");
+		ft_putstr(path);
 		ft_putchar('\n');
 		return ;
 	}

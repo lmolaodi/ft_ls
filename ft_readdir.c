@@ -27,7 +27,7 @@ t_list *ft_readdir(char *path, int flag)
 					ft_insert_list(&list, file->d_name);
 		}
 	}else{
-		ft_putstr("closing directory");
+		ft_putstr("closing file");
 		closedir(dir);
 	}
 	return (list);
