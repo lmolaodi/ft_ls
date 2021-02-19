@@ -22,6 +22,8 @@ ls command options
 
 Compile Instructions
 
-git clone repo link
-cd ft_ls
-run command make
+git clone repo link.
+
+cd ft_ls.
+
+run command make.
